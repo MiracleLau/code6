@@ -10,7 +10,7 @@
                 autoLoad: true,
                 proxy: {
                     type: 'ajax',
-                    url: '/api/codeLeak',
+                    url: './api/codeLeak',
                     reader: {
                         rootProperty: 'data',
                         totalProperty: 'total',
@@ -106,7 +106,7 @@
                                         pageSize: 1000,
                                         proxy: {
                                             type: 'ajax',
-                                            url: '/api/configJob',
+                                            url: './api/configJob',
                                         },
                                     },
                                 },
@@ -370,7 +370,7 @@
                                                                 return;
                                                             }
                                                             var record = obj.up('buttongroup').getWidgetRecord();
-                                                            var url = '/api/codeLeak/' + record.id;
+                                                            var url = './api/codeLeak/' + record.id;
                                                             tool.ajax('DELETE', url, {uuid: record.data.uuid}, function (rsp) {
                                                                 if (rsp.success) {
                                                                     tool.toast(rsp.message, 'success');
@@ -407,7 +407,7 @@
                                                     }).show().removeCls('x-unselectable');
 
                                                     var record = obj.up('buttongroup').getWidgetRecord();
-                                                    tool.ajax('GET', '/api/codeFragment', {uuid: record.data.uuid}, function (rsp) {
+                                                    tool.ajax('GET', './api/codeFragment', {uuid: record.data.uuid}, function (rsp) {
                                                         if (!rsp.success) {
                                                             winFragment.setHtml(rsp.message);
                                                             return;
@@ -436,7 +436,7 @@
                                                             }
                                                             var data = obj.up('buttongroup').getWidgetRecord().data;
                                                             var params = {value: data.repo_owner + '/' + data.repo_name};
-                                                            tool.ajax('POST', '/api/configWhitelist', params, function (rsp) {
+                                                            tool.ajax('POST', './api/configWhitelist', params, function (rsp) {
                                                                 if (rsp.success) {
                                                                     tool.toast('操作成功！', 'success');
                                                                 } else {
@@ -499,7 +499,7 @@
             function update(record, field, value) {
                 var params = {};
                 params[field] = value;
-                tool.ajax('PUT', '/api/codeLeak/' + record.id, params, function (rsp) {
+                tool.ajax('PUT', './api/codeLeak/' + record.id, params, function (rsp) {
                     if (rsp.success) {
                         tool.toast('操作成功！', 'success');
                         record.set(field, rsp.data[field]);
@@ -541,7 +541,7 @@
                 }
 
                 params.uuid = Ext.encode(uuid);
-                tool.ajax(method, '/api/codeLeak/' + route, params, function (rsp) {
+                tool.ajax(method, './api/codeLeak/' + route, params, function (rsp) {
                     if (rsp.success) {
                         tool.toast('操作成功！', 'success');
                         grid.store.reload();
@@ -574,7 +574,7 @@
                             values.push(record.get('repo_owner') + '/' + record.get('repo_name'));
                         }
 
-                        tool.ajax('POST', '/api/configWhitelist/batchStore', {values: Ext.encode(values)}, function (rsp) {
+                        tool.ajax('POST', './api/configWhitelist/batchStore', {values: Ext.encode(values)}, function (rsp) {
                             if (rsp.success) {
                                 tool.toast('操作成功！', 'success');
                                 grid.getSelectionModel().deselectAll();

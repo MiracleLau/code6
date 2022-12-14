@@ -271,7 +271,7 @@
 
                                 var params = this.up('form').getForm().getValues();
                                 params.type = type;
-                                tool.ajax('POST', '/api/test', params, function (rsp) {
+                                tool.ajax('POST', './api/test', params, function (rsp) {
                                     if (rsp.success) {
                                         tool.toast('发送成功！', 'success');
                                     } else {
@@ -286,7 +286,7 @@
                             handler: function () {
                                 var params = this.up('form').getForm().getValues();
                                 params.type = type;
-                                tool.ajax('POST', '/api/configNotify', params, function (rsp) {
+                                tool.ajax('POST', './api/configNotify', params, function (rsp) {
                                     if (rsp.success) {
                                         tool.toast('保存成功！', 'success');
                                     } else {
@@ -395,7 +395,7 @@
 
             // 通知模板
             function winFormTemplate() {
-                tool.ajax('GET', '/api/configNotifyTemplate', {}, function (rsp) {
+                tool.ajax('GET', './api/configNotifyTemplate', {}, function (rsp) {
                     if (!rsp.success) {
                         tool.toast('读取配置错误！');
                         return false;
@@ -457,7 +457,7 @@
                                         formBind: true,
                                         handler: function () {
                                             var params = this.up('form').getValues();
-                                            tool.ajax('POST', '/api/configNotifyTemplate', params, function (rsp) {
+                                            tool.ajax('POST', './api/configNotifyTemplate', params, function (rsp) {
                                                 if (rsp.success) {
                                                     win.close();
                                                     tool.toast('保存成功！', 'success');

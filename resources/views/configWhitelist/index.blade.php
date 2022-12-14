@@ -10,7 +10,7 @@
                 autoLoad: true,
                 proxy: {
                     type: 'ajax',
-                    url: '/api/configWhitelist',
+                    url: './api/configWhitelist',
                     reader: {
                         rootProperty: 'data',
                         totalProperty: 'total',
@@ -62,7 +62,7 @@
                                         }
 
                                         var params = {id: Ext.encode(id)};
-                                        tool.ajax('DELETE', '/api/configWhitelist/batchDestroy', params, function (rsp) {
+                                        tool.ajax('DELETE', './api/configWhitelist/batchDestroy', params, function (rsp) {
                                             if (rsp.success) {
                                                 tool.toast('操作成功！', 'success');
                                                 grid.store.reload();
@@ -146,7 +146,7 @@
                                                     return;
                                                 }
                                                 var record = obj.up().getWidgetRecord();
-                                                var url = '/api/configWhitelist/' + record.id;
+                                                var url = './api/configWhitelist/' + record.id;
                                                 tool.ajax('DELETE', url, {}, function (rsp) {
                                                     if (rsp.success) {
                                                         tool.toast(rsp.message, 'success');
@@ -211,7 +211,7 @@
                                         var values = this.up('form').getValues();
                                         var params = {};
                                         params['value'] = values['repo_owner'] + '/' + values['repo_name'];
-                                        tool.ajax('POST', '/api/configWhitelist', params, function (rsp) {
+                                        tool.ajax('POST', './api/configWhitelist', params, function (rsp) {
                                             if (rsp.success) {
                                                 win.close();
                                                 tool.toast('操作成功！', 'success');
@@ -229,7 +229,7 @@
             }
 
             function winFormFile() {
-                tool.ajax('GET', '/api/configWhitelistFile', {}, function (rsp) {
+                tool.ajax('GET', './api/configWhitelistFile', {}, function (rsp) {
                     if (!rsp.success) {
                         tool.toast('读取配置错误！');
                         return false;
@@ -272,7 +272,7 @@
                                         formBind: true,
                                         handler: function () {
                                             var params = this.up('form').getValues();
-                                            tool.ajax('POST', '/api/configWhitelistFile', params, function (rsp) {
+                                            tool.ajax('POST', './api/configWhitelistFile', params, function (rsp) {
                                                 if (rsp.success) {
                                                     winFile.close();
                                                     tool.toast('保存成功！', 'success');

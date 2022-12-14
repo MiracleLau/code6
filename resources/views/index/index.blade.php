@@ -145,7 +145,7 @@
                                                                 return;
                                                             }
 
-                                                            tool.ajax('POST', '/api/logout', {}, function (rsp) {
+                                                            tool.ajax('POST', './api/logout', {}, function (rsp) {
                                                                 if (rsp.success) {
                                                                     window.location = '/login';
                                                                 } else {
@@ -243,7 +243,7 @@
                                             tool.toast('两次输入的密码不一致！');
                                             return false;
                                         }
-                                        tool.ajax('PUT', '/api/user', params, function (rsp) {
+                                        tool.ajax('PUT', './api/user', params, function (rsp) {
                                             if (rsp.success) {
                                                 win.close();
                                                 tool.toast('操作成功！', 'success');
@@ -265,7 +265,7 @@
                 width: 300,
                 height: 300,
                 loader: {
-                    url: '/api/home/mobileQrCode',
+                    url: './api/home/mobileQrCode',
                     loadOnRender: true,
                 },
             });
@@ -277,7 +277,7 @@
 
             // 代理配置
             function winProxy() {
-                tool.ajax('GET', '/api/configProxy', null, function (rsp) {
+                tool.ajax('GET', './api/configProxy', null, function (rsp) {
                     if (!rsp.success) {
                         tool.toast('读取代理配置失败！');
                         return false;
@@ -311,7 +311,7 @@
                                                 return;
                                             }
                                             tool.toast('测试中..', 'info');
-                                            tool.ajax('POST', '/api/configProxy/test', params, function (rsp) {
+                                            tool.ajax('POST', './api/configProxy/test', params, function (rsp) {
                                                 if (rsp.success) {
                                                     tool.toast('代理正常！', 'success');
                                                 } else {
@@ -325,7 +325,7 @@
                                         formBind: true,
                                         handler: function () {
                                             var params = this.up('form').getValues();
-                                            tool.ajax('POST', '/api/configProxy', params, function (rsp) {
+                                            tool.ajax('POST', './api/configProxy', params, function (rsp) {
                                                 if (rsp.success) {
                                                     win.close();
                                                     tool.toast('保存成功！', 'success');

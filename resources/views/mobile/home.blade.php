@@ -112,7 +112,7 @@
                 if (me.tab.current !== 'all') {
                     params.status = me.tab.current;
                 }
-                axios.get('/api/codeLeak', {params: params}).then(function (rsp) {
+                axios.get('./api/codeLeak', {params: params}).then(function (rsp) {
                     me.page.current = page;
                     me.page.count = rsp.data.last_page ? rsp.data.last_page : 0;
                     me.list.data = rsp.data.data;
@@ -155,7 +155,7 @@
             update(data) {
                 var me = this;
                 var item = me.list.selection;
-                axios.put('/api/codeLeak/' + item.id, data).then(function (rsp) {
+                axios.put('./api/codeLeak/' + item.id, data).then(function (rsp) {
                     if (rsp.data.success) {
                         item = Object.assign(item, data);
                         me.$toast.success('操作成功');

@@ -12,7 +12,7 @@
                 autoLoad: true,
                 proxy: {
                     type: 'ajax',
-                    url: '/api/configJob',
+                    url: './api/configJob',
                 }
             });
 
@@ -76,7 +76,7 @@
                                         }
 
                                         var params = {id: Ext.encode(id)};
-                                        tool.ajax('DELETE', '/api/configJob/batchDestroy', params, function (rsp) {
+                                        tool.ajax('DELETE', './api/configJob/batchDestroy', params, function (rsp) {
                                             if (rsp.success) {
                                                 tool.toast('操作成功！', 'success');
                                                 grid.store.reload();
@@ -204,7 +204,7 @@
                                                     return;
                                                 }
                                                 var record = obj.up().getWidgetRecord();
-                                                var url = '/api/configJob/' + record.id;
+                                                var url = './api/configJob/' + record.id;
                                                 tool.ajax('DELETE', url, {}, function (rsp) {
                                                     if (rsp.success) {
                                                         tool.toast(rsp.message, 'success');
@@ -300,7 +300,7 @@
                                     handler: function () {
                                         var params = this.up('form').getValues();
                                         var method = data.id ? 'PUT' : 'POST';
-                                        var url = data.id ? '/api/configJob/' + data.id : '/api/configJob';
+                                        var url = data.id ? './api/configJob/' + data.id : './api/configJob';
                                         tool.ajax(method, url, params, function (rsp) {
                                             if (rsp.success) {
                                                 win.close();
@@ -369,7 +369,7 @@
                         pageSize: 99999,
                         proxy: {
                             type: 'ajax',
-                            url: '/api/configJob/queue',
+                            url: './api/configJob/queue',
                         },
                     },
                     columns: [

@@ -46,7 +46,7 @@
                     return;
                 }
 
-                axios.post('/api/login', {email: me.email, password: me.password}).then(function (rsp) {
+                axios.post('./api/login', {email: me.email, password: me.password}).then(function (rsp) {
                     if (rsp.data.success) {
                         window.location = '/mobile';
                     } else {

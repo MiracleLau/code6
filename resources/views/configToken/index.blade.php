@@ -12,7 +12,7 @@
                 autoLoad: true,
                 proxy: {
                     type: 'ajax',
-                    url: '/api/configToken',
+                    url: './api/configToken',
                 }
             });
 
@@ -197,7 +197,7 @@
                                                     return;
                                                 }
                                                 var record = obj.up().getWidgetRecord();
-                                                var url = '/api/configToken/' + record.id;
+                                                var url = './api/configToken/' + record.id;
                                                 tool.ajax('DELETE', url, {}, function (rsp) {
                                                     if (rsp.success) {
                                                         tool.toast(rsp.message, 'success');
@@ -272,7 +272,7 @@
 
                                         var params = this.up('form').getValues();
                                         var method = data.id ? 'PUT' : 'POST';
-                                        var url = data.id ? '/api/configToken/' + data.id : '/api/configToken';
+                                        var url = data.id ? './api/configToken/' + data.id : './api/configToken';
                                         tool.ajax(method, url, params, function (rsp) {
                                             if (rsp.success) {
                                                 win.close();

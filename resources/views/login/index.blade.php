@@ -19,7 +19,7 @@
                 return;
             }
 
-            tool.ajax('POST', '/api/login', {email: email, password: password}, function (rsp) {
+            tool.ajax('POST', './api/login', {email: email, password: password}, function (rsp) {
                 if (rsp.success) {
                     window.location = '/';
                 } else {

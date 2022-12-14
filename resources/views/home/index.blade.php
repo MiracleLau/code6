@@ -217,7 +217,7 @@
 
             // 数据指标
             newTask(60000, function () {
-                tool.ajax('GET', '/api/home/metric', {}, function (rsp) {
+                tool.ajax('GET', './api/home/metric', {}, function (rsp) {
                     if (rsp.success !== true) {
                         return false;
                     }
@@ -240,7 +240,7 @@
             // 负载 + 内存 + 磁盘信息
             Ext.each(['load', 'memory', 'disk'], function (key) {
                 newTask(60000, function () {
-                    tool.ajax('GET', '/api/home/' + key, {}, function (rsp) {
+                    tool.ajax('GET', './api/home/' + key, {}, function (rsp) {
                         if (rsp.success) {
                             var data = {};
                             data[key] = rsp.data;
@@ -306,7 +306,7 @@
 
             // GitHub 接口请求统计
             newTask(60000, function () {
-                tool.ajax('GET', '/api/home/tokenQuota', {}, function (rsp) {
+                tool.ajax('GET', './api/home/tokenQuota', {}, function (rsp) {
                     if (rsp.success) {
                         chart.changeData(rsp.data);
                     }
@@ -314,7 +314,7 @@
             });
 
             // 检查令牌
-            tool.ajax('GET', '/api/home/tokenCount', {}, function (rsp) {
+            tool.ajax('GET', './api/home/tokenCount', {}, function (rsp) {
                 if (rsp.data) {
                     viewModel.setData({configToken: 'tick'});
                 } else {
@@ -323,14 +323,14 @@
             });
 
             // 检查任务
-            tool.ajax('GET', '/api/home/jobCount', {}, function (rsp) {
+            tool.ajax('GET', './api/home/jobCount', {}, function (rsp) {
                 if (rsp.data) {
                     viewModel.setData({configJob: 'tick'});
                 }
             });
 
             // 检查最新版本
-            tool.ajax('GET', '/api/home/upgradeCheck', {}, function (rsp) {
+            tool.ajax('GET', './api/home/upgradeCheck', {}, function (rsp) {
                 if (rsp.data && rsp.data.new) {
                     var version = rsp.data.version;
                     var url = 'https://github.com/4x99/code6/releases';
