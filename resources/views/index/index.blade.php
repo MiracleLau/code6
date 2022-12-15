@@ -42,12 +42,12 @@
                                         nav: [
                                             {
                                                 text: '应用概况',
-                                                url: '/home',
+                                                url: './home',
                                                 active: true,
                                             },
                                             {
                                                 text: '扫描结果',
-                                                url: '/codeLeak',
+                                                url: './codeLeak',
                                             }
                                         ]
                                     }
@@ -85,17 +85,17 @@
                                             {
                                                 text: '令牌配置',
                                                 iconCls: 'icon-page-key',
-                                                href: '/configToken',
+                                                href: './configToken',
                                             },
                                             {
                                                 text: '任务配置',
                                                 iconCls: 'icon-page-star',
-                                                href: '/configJob',
+                                                href: './configJob',
                                             },
                                             {
                                                 text: '通知配置',
                                                 iconCls: 'icon-email',
-                                                href: '/configNotify',
+                                                href: './configNotify',
                                             },
                                             {
                                                 text: '代理配置',
@@ -107,7 +107,7 @@
                                                 text: '白名单配置',
                                                 align: 'left',
                                                 iconCls: 'icon-page-db',
-                                                href: '/configWhitelist',
+                                                href: './configWhitelist',
                                             }
                                         ]
                                     }
@@ -147,7 +147,7 @@
 
                                                             tool.ajax('POST', './api/logout', {}, function (rsp) {
                                                                 if (rsp.success) {
-                                                                    window.location = '/login';
+                                                                    window.location = './login';
                                                                 } else {
                                                                     tool.toast(rsp.message, 'error');
                                                                 }
@@ -163,7 +163,7 @@
                             {
                                 id: 'mobile',
                                 iconCls: 'icon-phone',
-                                href: '/mobile',
+                                href: './mobile',
                                 text: '访问移动版',
                                 margin: '0 25 0 32',
                             }

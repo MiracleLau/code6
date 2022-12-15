@@ -21,7 +21,7 @@
 
             tool.ajax('POST', './api/login', {email: email, password: password}, function (rsp) {
                 if (rsp.success) {
-                    window.location = '/';
+                    window.location = './';
                 } else {
                     tool.toast(rsp.message, 'error');
                 }
