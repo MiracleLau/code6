@@ -10,6 +10,8 @@ sed -i "s!DB_PORT=3306!DB_PORT=$MYSQL_PORT!" .env
 sed -i "s!DB_DATABASE=code6!DB_DATABASE=$MYSQL_DATABASE!" .env
 sed -i "s!DB_USERNAME=!DB_USERNAME=$MYSQL_USERNAME!" .env
 sed -i "s!DB_PASSWORD=!DB_PASSWORD=$MYSQL_PASSWORD!" .env
+sed -i "s!APP_URL=http://localhost!APP_URL=$APP_URL!" .env
+sed -i "s!ASSET_URL=http://localhost!ASSET_URL=$ASSET_URL!" .env
 php artisan migrate --force
 
 # 配置任务调度

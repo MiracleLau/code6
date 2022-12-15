@@ -38,8 +38,6 @@ services:
       - ${PORT}:80
     networks:
       - code6-network
-    links:
-      - mysql
 networks:
   code6-network:
     name: code6-network
